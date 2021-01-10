@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.reservation-module {
+  width: 50vw;
+  height: 50vh;
+  margin: 25vh auto;
+}

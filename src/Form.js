@@ -1,12 +1,5 @@
 import React from 'react';
-import 'date-fns';
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker
-}
-from '@material-ui/pickers';
+
 
 class Form extends React.Component {
     constructor(props) {
@@ -14,11 +7,12 @@ class Form extends React.Component {
         this.state = {
             name: '',
             quantity: '',
-            datefrom: '',
-            dateTo: ''
+            dateFrom: 'yyyy-MM-dd',
+            dateTo: 'yyyy-MM-dd'
         }
 
         this.handleFormChange = this.handleFormChange.bind(this);
+        this.handleDateSelect = this.handleDateSelect.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.clearForm = this.clearForm.bind(this);
 
@@ -46,12 +40,19 @@ class Form extends React.Component {
 
 
     handleFormChange(event) {
-        console.log(event.target.value);
         let key = event.target.name;
         let value = event.target.value;
         this.setState({
             [key]: value
         })
+    }
+
+    handleDateSelect(event) {
+        let key = event.target.name;
+        let value = event.target.value;
+        this.setState({
+            [key]: value
+        }, () => console.log('STATE', this.state))
     }
 
     clearForm() {
@@ -64,48 +65,34 @@ class Form extends React.Component {
     render() {
         return (
             <div>
+                <h1>
+                    Enter your reservation details:
+                </h1>
                 <form onSubmit={this.handleFormSubmit}>
-                    <label> Name
-              <input name="name" onChange={this.handleFormChange} value={this.state.name} />
-                    </label>
-                    {/* <label> 
-              <input name="quantity" onChange={this.handleFormChange} value={this.state.quantity}/>
-            </label> */}
-                    {/* <button>Add Grocery</button> */}
-
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Grid container justify="space-around">
-                        <KeyboardDatePicker
-                            disableToolbar
-                            variant="inline"
-                            format="MM/dd/yyyy"
-                            margin="normal"
-                            id="date-picker-inline"
-                            label="Reservation Start"
-                            name="start"
-                            value={this.state.dateFrom}
-                            onChange={this.handleFormChange}
-                            KeyboardButtonProps={{
-                                'aria-label': 'change date',
-                            }}
-                            />
-                        <KeyboardDatePicker
-                            disableToolbar
-                            variant="inline"
-                            format="MM/dd/yyyy"
-                            margin="normal"
-                            id="date-picker-inline"
-                            label="Reservation End"
-                            name="end"
-                            value={this.state.dateTo}
-                            onChange={this.handleFormChange}
-                            KeyboardButtonProps={{
-                                'aria-label': 'change date',
-                            }}
-                        />
-                    </Grid>
-                </MuiPickersUtilsProvider>
-                            </form>
+                    <label> Name</label>
+                    <input name="name" onChange={this.handleFormChange} value={this.state.name} />
+                    <label htmlFor="start">Start date:</label>
+                    <input
+                        type="date"
+                        id="start"
+                        name="dateFrom"
+                        value={this.state.dateFrom}
+                        min="2021-01-13"
+                        max="2022-01-13"
+                        onChange={this.handleDateSelect}
+                    />
+                    <label htmlFor="End">End date:</label>
+                    <input
+                        type="date"
+                        id="End"
+                        name="dateTo"
+                        value={this.state.dateTo}
+                        min="2021-01-13"
+                        max="2022-01-13"
+                        onChange={this.handleDateSelect}
+                    />
+                    <button>Make Reservation</button>
+                </form>
             </div>
         );
     }

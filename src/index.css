@@ -1,4 +1,4 @@
-body {
+body, input {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -13,7 +13,32 @@ code {
 }
 
 .reservation-module {
+  
   width: 50vw;
   height: 50vh;
   margin: 25vh auto;
+  padding: 5%;
+  border: 2px solid grey ;
+  border-radius: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  margin: auto;
+}
+
+input, button{
+  margin: 10px;
+
+}
+
+label {
+  margin-left: 10px;
+}
+
+button {
+  min-height: 25px;
 }

@@ -12,11 +12,17 @@ code {
     monospace;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .reservation-module {
-  
   width: 50vw;
   height: 50vh;
-  margin: 25vh auto;
+  margin: 15vh auto;
   padding: 5%;
   border: 2px solid grey ;
   border-radius: 15px;

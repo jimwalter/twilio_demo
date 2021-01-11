@@ -65,9 +65,9 @@ class Form extends React.Component {
     render() {
         return (
             <div>
-                <h1>
+                <h2>
                     Enter your reservation details:
-                </h1>
+                </h2>
                 <form onSubmit={this.handleFormSubmit}>
                     <label> Name</label>
                     <input name="name" onChange={this.handleFormChange} value={this.state.name} />

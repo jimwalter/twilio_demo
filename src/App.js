@@ -11,8 +11,16 @@ class App extends React.Component{
     
     render() {
       return (
-        <div className="reservation-module">
-          <Form />
+        <div>
+          <header>
+            <h2>
+              Make your EPIC PASS reservation
+            </h2>
+            <img src='./assets/logo.png' alt='epic pass logo' />
+          </header>
+          <div className="reservation-module">
+            <Form />
+          </div>
         </div>
         )
     }
